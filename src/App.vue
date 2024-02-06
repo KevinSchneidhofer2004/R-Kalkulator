@@ -12,11 +12,11 @@
         @input="handleInput(index)"
       />
       
-      <button id="deleteResistanceButton" @click="deleteResistor(index)">Delete</button>
+      <button id="delete_resistance_button" @click="deleteResistor(index)">Delete</button>
     </div>
 
     <div>
-      <button id="addResistanceButton" @click="addResistance">Widerstand hinzufügen</button>
+      <button id="add_resistance_button" @click="addResistance">Widerstand hinzufügen</button>
     </div>
 
     <div id="circuit_type">
@@ -36,7 +36,6 @@
 </template>
 
 <style scoped>
-
 #title {
   margin: 30px;
   margin-left: 10px;
@@ -50,14 +49,18 @@
 }
 
 #resistors {
+  display: flex;
+  align-items: center;
   margin: 5px;
+  margin-bottom: 10px;
 }
 
 #resistor {
   margin: 10px;
 }
 
-#deleteResistanceButton {
+#delete_resistance_button {
+  margin-right: 10px;
   margin-left: 10px;
   cursor: pointer;
   background-color: #ff6666;
@@ -67,7 +70,7 @@
   border-radius: 5px;
 }
 
-#addResistanceButton {
+#add_resistance_button {
   margin-left: 10px;
   padding: 5px;
 }
@@ -99,12 +102,43 @@
 
 #calculation_display {
   padding: 10px;
-  font-size: 1.5em
+  font-size: 1.5em;
 }
 
+#calculator_container {
+  max-width: 800px;
+}
+
+@media only screen and (max-width: 600px) {
+  #title {
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+  }
+
+  #resistors {
+    flex-direction: column;
+  }
+  
+  #resistors label,
+  #resistors input,
+  #resistors button {
+    width: 100%;
+  }
+
+  #delete_resistance_button {
+    margin-bottom: 10px;
+    margin-top: 8px;
+  }
+
+  #title {
+    font-size: 2em;
+  }
+}
 </style>
 
 <script>
+
 export default {
   data() {
     return {
